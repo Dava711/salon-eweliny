@@ -143,6 +143,14 @@ section{padding:100px 0}
 .info a:hover{border-color:var(--brass);transform:translateY(-4px);background:rgba(255,255,255,.07)}
 .info small{display:block;color:var(--rose);margin-bottom:6px}
 .info strong{font-family:var(--serif);font-size:1.45rem;font-weight:600}
+.hours{max-width:520px;margin:0 auto 40px;text-align:left;border:1px solid rgba(233,183,195,.25);border-radius:22px;padding:8px 26px 14px;background:rgba(255,255,255,.03)}
+.hours h3{font-size:1.7rem;padding:16px 0 10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.badge{font-family:var(--sans);font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:99px}
+.badge.on{background:rgba(120,210,150,.18);color:#8fe3ad}.badge.off{background:rgba(233,183,195,.16);color:var(--rose)}
+.hr{display:flex;justify-content:space-between;padding:10px 14px;margin:0 -14px;border-radius:12px;transition:background .3s}
+.hr:hover{background:rgba(255,255,255,.05)}
+.hr.today{background:rgba(201,163,106,.2);font-weight:700}
+.hr.cl span:last-child{opacity:.6}
 footer{background:#140810;color:#b89aa5;text-align:center;padding:26px 16px;font-size:.85rem}
 
 @media (max-width:860px){
@@ -221,9 +229,9 @@ footer{background:#140810;color:#b89aa5;text-align:center;padding:26px 16px;font
   <h2 class="h2 rv">Usługi</h2>
   <p class="sub rv">Dobieramy fryzurę do Twojej twarzy, włosów i stylu życia.</p>
   <div class="services">
-   <div class="svc rv"><svg viewBox="0 0 48 48"><circle cx="14" cy="36" r="6"/><circle cx="34" cy="36" r="6"/><path d="M18 31 L38 6M30 31 L10 6"/></svg><h3>Strzyżenie</h3><p>Damskie, męskie i dziecięce – precyzyjne cięcia i modelowanie.</p></div>
-   <div class="svc rv"><svg viewBox="0 0 48 48"><path d="M24 5 C14 18 10 24 10 31 a14 14 0 0 0 28 0 C38 24 34 18 24 5Z"/><path d="M18 32 a6 6 0 0 0 6 6"/></svg><h3>Koloryzacja</h3><p>Balayage, ombre, odświeżenie koloru i troskliwe rozjaśnianie.</p></div>
-   <div class="svc rv"><svg viewBox="0 0 48 48"><path d="M24 4 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4z"/><path d="M38 32 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/></svg><h3>Stylizacja</h3><p>Fale, upięcia i fryzury okolicznościowe – ślub, studniówka, wieczór.</p></div>
+   <div class="svc rv"><svg viewBox="0 0 48 48"><path d="M24 5 C14 18 10 24 10 31 a14 14 0 0 0 28 0 C38 24 34 18 24 5Z"/><path d="M18 32 a6 6 0 0 0 6 6"/></svg><h3>Koloryzacja włosów</h3><p>Balayage, ombre, odświeżenie koloru i troskliwe rozjaśnianie.</p></div>
+   <div class="svc rv"><svg viewBox="0 0 48 48"><circle cx="14" cy="36" r="6"/><circle cx="34" cy="36" r="6"/><path d="M18 31 L38 6M30 31 L10 6"/></svg><h3>Strzyżenie damskie</h3><p>Precyzyjne cięcia dopasowane do kształtu twarzy i rodzaju włosów.</p></div>
+   <div class="svc rv"><svg viewBox="0 0 48 48"><path d="M6 14h22a8 8 0 0 1 0 16H6z"/><path d="M14 30l-2 12h8l-1-12"/><path d="M34 16l8-3M34 22h8M34 28l8 3"/></svg><h3>Suszarka do włosów</h3><p>Suszenie i modelowanie – gładkie pasma, fale i naturalna objętość.</p></div>
   </div>
  </div>
 </section>
@@ -241,6 +249,7 @@ footer{background:#140810;color:#b89aa5;text-align:center;padding:26px 16px;font
   </div>
  </div>
 </section>
+
 <section id="o-nas">
  <div class="wrap about">
   <div class="rv">
@@ -266,6 +275,10 @@ footer{background:#140810;color:#b89aa5;text-align:center;padding:26px 16px;font
    <a href="tel:+48692105447"><small>Telefon</small><strong>692 105 447</strong></a>
    <a href="https://www.google.com/maps/search/?api=1&query=Mieszka+Starego+29%2C+58-160+%C5%9Awiebodzice" target="_blank" rel="noopener"><small>Adres – otwórz w Mapach Google</small><strong>Mieszka Starego 29<br>58-160 Świebodzice</strong></a>
    <div><small>Rezerwacja</small><strong>Online przez Booksy</strong></div>
+  </div>
+  <div class="hours rv">
+   <h3>Godziny otwarcia <span class="badge" id="badge"></span></h3>
+   <div id="hrs"></div>
   </div>
   <a class="btn book rv" href="#" data-booksy>Zapisz się</a>
  </div>
@@ -346,6 +359,15 @@ vp.addEventListener('pointerleave',()=>{sx=null});
 addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(idx+1);if(e.key==='ArrowLeft')go(idx-1)});
 addEventListener('resize',()=>{build();go(Math.min(idx,max()))});
 build();go(0);auto();
+// godziny otwarcia
+const days=['niedziela','poniedziałek','wtorek','środa','czwartek','piątek','sobota'];
+const H={1:[8,16],2:[8,16],3:[8,16],4:[8,16],5:[8,16],6:[8,13],0:null};
+const z=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Warsaw'}));
+const nowH=z.getHours()+z.getMinutes()/60,td=z.getDay();
+const f=n=>String(n).padStart(2,'0')+':00';
+document.getElementById('hrs').innerHTML=[1,2,3,4,5,6,0].map(d=>{const h=H[d];return `<div class="hr${d===td?' today':''}${h?'':' cl'}"><span>${days[d][0].toUpperCase()+days[d].slice(1)}</span><span>${h?f(h[0])+' - '+f(h[1]):'Zamknięte'}</span></div>`}).join('');
+const open=H[td]&&nowH>=H[td][0]&&nowH<H[td][1],bd=document.getElementById('badge');
+bd.textContent=open?'Teraz otwarte':'Teraz zamknięte';bd.className='badge '+(open?'on':'off');
 </script>
 </body>
 </html>
