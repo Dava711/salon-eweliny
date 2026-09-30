@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Salon fryzjerski u Eweliny – Świebodzice</title>
+<meta name="description" content="Salon fryzjerski u Eweliny, Mieszka Starego 29, Świebodzice. Strzyżenie, koloryzacja, stylizacja. Zadzwoń: 692 105 447.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--plum:#2b1322;--plum2:#3d1c31;--rose:#e9b7c3;--brass:#c9a36a;--pearl:#fbf3f0;--bg:#fbf3f0;--ink:#2b1322;--card:#fff;--muted:#6f5560;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d0d16;--ink:#f5e6e6;--card:#2b1322;--muted:#c4a9b2}}
+:root[data-theme="dark"]{--bg:#1d0d16;--ink:#f5e6e6;--card:#2b1322;--muted:#c4a9b2}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* intro curtain */
+#intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;pointer-events:none}
+#intro .half{position:absolute;top:0;bottom:0;width:50%;background:var(--plum);transition:transform 1.3s cubic-bezier(.77,0,.18,1) 2.1s}
+#intro .l{left:0}#intro .r{right:0}
+#intro.go .l{transform:translateX(-101%)}#intro.go .r{transform:translateX(101%)}
+#intro .mid{position:relative;z-index:2;text-align:center;color:var(--pearl);transition:opacity .5s 1.9s}
+#intro.go .mid{opacity:0}
+#intro svg{width:110px;height:110px}
+.blade{transform-origin:50px 50px;animation:snip .5s ease-in-out 3 alternate}
+.b1{animation-name:snip1}.b2{animation-name:snip2}
+@keyframes snip1{from{transform:rotate(-2deg)}to{transform:rotate(-24deg)}}
+@keyframes snip2{from{transform:rotate(2deg)}to{transform:rotate(24deg)}}
+#intro p{font-family:var(--serif);font-size:1.7rem;margin:.6rem 0 0;letter-spacing:.04em;opacity:0;animation:in .9s .4s forwards}
+@keyframes in{to{opacity:1}}
+#intro .cut{position:absolute;left:50%;top:0;width:2px;height:0;background:var(--brass);z-index:3;animation:cut 1.2s 1.3s forwards}
+@keyframes cut{0%{height:0}60%{height:100%;opacity:1}100%{height:100%;opacity:0}}
+
+/* nav */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .4s,backdrop-filter .4s}
+nav.s{background:rgba(43,19,34,.88);backdrop-filter:blur(10px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:var(--serif);font-size:1.4rem;color:var(--pearl);text-decoration:none;font-weight:600}
+.links{display:flex;gap:26px;align-items:center}
+.links a{color:var(--pearl);text-decoration:none;font-size:.92rem;opacity:.85;transition:opacity .2s}
+.links a:hover{opacity:1}
+.btn{display:inline-block;padding:14px 30px;border-radius:99px;background:linear-gradient(135deg,var(--brass),#e6c58f);color:var(--plum)!important;font-weight:700;text-decoration:none;opacity:1!important;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 24px rgba(201,163,106,.3)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,163,106,.5)}
+.btn:after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:rgba(255,255,255,.55);transform:skewX(-20deg);animation:shine 3.6s infinite}
+@keyframes shine{0%,60%{left:-70%}100%{left:130%}}
+.links .btn{padding:10px 22px}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;height:2px;background:var(--pearl);margin:6px 10px;transition:.3s}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;background:radial-gradient(900px 600px at var(--mx,70%) var(--my,30%),#5a2946 0%,transparent 60%),linear-gradient(160deg,var(--plum),#1a0a14);color:var(--pearl);display:flex;align-items:center;position:relative;overflow:hidden;padding:110px 0 70px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(3rem,8vw,6.4rem);letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero h1 span{display:block;overflow:hidden}
+.hero h1 span i{display:block;font-style:inherit;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.ready .hero h1 span i{transform:none}
+.ready .hero h1 span:nth-child(2) i{transition-delay:.15s}
+.ready .hero h1 span:nth-child(3) i{transition-delay:.3s}
+.hero p.lead{max-width:440px;font-size:1.08rem;opacity:0;transform:translateY(16px);transition:1s .6s}
+.ready .hero p.lead,.ready .hero .cta{opacity:1;transform:none}
+.hero .cta{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:28px;opacity:0;transform:translateY(16px);transition:1s .8s}
+.tel{color:var(--pearl);text-decoration:none;font-weight:700;border-bottom:1px solid var(--brass)}
+.art{position:relative;aspect-ratio:1;max-width:460px;margin-left:auto;width:100%}
+.art svg{width:100%;height:100%;overflow:visible}
+.strand{fill:none;stroke:url(#sg);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900}
+.ready .strand{animation:draw 3.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.float{animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-14px) rotate(3deg)}}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;animation:fl 9s ease-in-out infinite}
+.scroll{position:absolute;bottom:22px;left:50%;width:1px;height:48px;background:linear-gradient(var(--brass),transparent);animation:sc 2s infinite}
+@keyframes sc{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* sections */
+section{padding:100px 0}
+.h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:14px}
+.sub{color:var(--muted);max-width:520px;margin:0 0 46px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{background:var(--card);border-radius:26px 26px 26px 6px;padding:32px 28px;box-shadow:0 14px 40px rgba(43,19,34,.08);transition:transform .35s,box-shadow .35s}
+.svc:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(43,19,34,.16)}
+.svc svg{width:44px;height:44px;stroke:var(--brass);fill:none;stroke-width:1.6;margin-bottom:14px}
+.svc h3{font-size:1.7rem;margin-bottom:8px}
+.svc p{margin:0;color:var(--muted);font-size:.96rem}
+
+/* portfolio */
+#portfolio{background:var(--plum);color:var(--pearl);overflow:hidden}
+#portfolio .sub{color:#d9bfc9}
+.slider{position:relative}
+.vp{overflow:hidden;border-radius:30px;touch-action:pan-y}
+.track{display:flex;transition:transform .8s cubic-bezier(.65,0,.25,1)}
+.slide{flex:0 0 33.333%;padding:0 10px}
+.card{border-radius:26px;overflow:hidden;position:relative;aspect-ratio:3/4;transition:transform .5s}
+.card svg.bg{width:100%;height:100%;display:block;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.card:hover svg.bg{transform:scale(1.07)}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(26,10,20,.88))}
+.cap h3{font-size:1.6rem}.cap span{font-size:.88rem;opacity:.8}
+.ctrl{display:flex;justify-content:space-between;align-items:center;margin-top:26px}
+.arrows{display:flex;gap:10px}
+.arrows button{width:50px;height:50px;border-radius:50%;border:1px solid rgba(233,183,195,.5);background:transparent;color:var(--pearl);font-size:1.2rem;cursor:pointer;transition:.25s}
+.arrows button:hover{background:var(--brass);color:var(--plum);border-color:var(--brass)}
+.dots{display:flex;gap:8px}
+.dots button{width:9px;height:9px;border-radius:9px;border:0;background:rgba(255,255,255,.3);cursor:pointer;padding:0;transition:.4s}
+.dots button.on{width:30px;background:var(--brass)}
+.note{font-size:.8rem;opacity:.6;margin-top:18px}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about p{color:var(--muted);font-size:1.05rem;margin:0 0 16px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{background:var(--card);border-radius:22px;padding:26px;box-shadow:0 14px 40px rgba(43,19,34,.08)}
+.stat b{font-family:var(--serif);font-size:2.3rem;display:block;line-height:1;color:var(--brass)}
+.stat span{font-size:.92rem;color:var(--muted)}
+
+.sl{position:relative;padding-left:62px}
+.sl svg{position:absolute;left:0;top:0;width:34px;height:100%;overflow:visible}
+.sl path{fill:none;stroke:var(--brass);stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s cubic-bezier(.4,0,.2,1)}
+.sl.in path{stroke-dashoffset:0}
+.row{position:relative;padding:24px 0;border-bottom:1px solid rgba(150,120,130,.3);cursor:default}
+.row:last-child{border-bottom:0}
+.row:before{content:"";position:absolute;left:-52px;top:50%;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:var(--bg);border:2px solid var(--brass);transition:.4s}
+.row:hover:before{background:var(--brass);transform:scale(1.5)}
+.row b{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;display:block;transition:transform .45s cubic-bezier(.2,.8,.2,1),color .3s}
+.row:hover b{transform:translateX(12px);color:var(--brass)}
+.row b.gr{background:linear-gradient(90deg,#b8557f,#e9b7c3,#c9a36a,#b8557f);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gs 5s linear infinite}
+.row:hover b.gr{color:transparent}
+@keyframes gs{to{background-position:200% 0}}
+.row span{color:var(--muted);display:block;margin-top:6px}
+
+/* contact */
+#kontakt{background:linear-gradient(160deg,var(--plum),#1a0a14);color:var(--pearl);text-align:center}
+#kontakt .sub{margin-inline:auto;color:#d9bfc9}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:10px 0 40px;text-align:left}
+.info a,.info div{display:block;padding:26px;border:1px solid rgba(233,183,195,.25);border-radius:22px;text-decoration:none;transition:.3s;background:rgba(255,255,255,.03)}
+.info a:hover{border-color:var(--brass);transform:translateY(-4px);background:rgba(255,255,255,.07)}
+.info small{display:block;color:var(--rose);margin-bottom:6px}
+.info strong{font-family:var(--serif);font-size:1.45rem;font-weight:600}
+.hours{max-width:520px;margin:0 auto 40px;text-align:left;border:1px solid rgba(233,183,195,.25);border-radius:22px;padding:8px 26px 14px;background:rgba(255,255,255,.03)}
+.hours h3{font-size:1.7rem;padding:16px 0 10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.badge{font-family:var(--sans);font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:99px}
+.badge.on{background:rgba(120,210,150,.18);color:#8fe3ad}.badge.off{background:rgba(233,183,195,.16);color:var(--rose)}
+.hr{display:flex;justify-content:space-between;padding:10px 14px;margin:0 -14px;border-radius:12px;transition:background .3s}
+.hr:hover{background:rgba(255,255,255,.05)}
+.hr.today{background:rgba(201,163,106,.2);font-weight:700}
+.hr.cl span:last-child{opacity:.6}
+footer{background:#140810;color:#b89aa5;text-align:center;padding:26px 16px;font-size:.85rem}
+
+@media (max-width:860px){
+ .hero .wrap,.about{grid-template-columns:1fr}
+ .art{max-width:300px;margin:10px auto 0;order:-1}
+ .services,.info{grid-template-columns:1fr}
+ .slide{flex-basis:100%}
+ section{padding:72px 0}
+ .burger{display:block}
+ .links{position:fixed;top:66px;left:0;right:0;flex-direction:column;background:rgba(43,19,34,.97);padding:26px;gap:20px;transform:translateY(-130%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+ .links.open{transform:none}
+ nav{top:env(safe-area-inset-top,0px)}
+}
+@media (min-width:861px) and (max-width:1000px){.slide{flex-basis:50%}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}.strand{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+
+<div id="intro" aria-hidden="true">
+ <div class="half l"></div><div class="half r"></div><div class="cut"></div>
+ <div class="mid">
+  <svg viewBox="0 0 100 100" fill="none" stroke="#c9a36a" stroke-width="2.4" stroke-linecap="round">
+   <g class="blade b1"><path d="M50 50 L78 14"/><circle cx="30" cy="80" r="9"/><path d="M50 50 L34 72"/></g>
+   <g class="blade b2"><path d="M50 50 L22 14"/><circle cx="70" cy="80" r="9"/><path d="M50 50 L66 72"/></g>
+  </svg>
+  <p>Salon u Eweliny</p>
+ </div>
+</div>
+
+<nav id="nav">
+ <div class="wrap">
+  <a class="logo" href="#top">u Eweliny</a>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+  <div class="links" id="links">
+   <a href="#uslugi">Usługi</a><a href="#portfolio">Portfolio</a><a href="#o-nas">O salonie</a><a href="#kontakt">Kontakt</a>
+   <a class="btn book" href="#" data-booksy>Zapisz się</a>
+  </div>
+ </div>
+</nav>
+
+<header class="hero" id="top">
+ <div class="orb" style="width:320px;height:320px;background:#b8557f;left:-80px;top:20%"></div>
+ <div class="orb" style="width:260px;height:260px;background:var(--brass);right:5%;bottom:5%;animation-delay:-3s"></div>
+ <div class="wrap">
+  <div>
+   <h1><span><i>Twoje włosy,</i></span><span><i><em>nasza</em> pasja</i></span><span><i>w Świebodzicach</i></span></h1>
+   <p class="lead" style="margin-top:24px">Salon fryzjerski u Eweliny – strzyżenie, koloryzacja i stylizacje, po których chce się wracać do lustra.</p>
+   <div class="cta">
+    <a class="btn book" href="#" data-booksy>Zapisz się na wizytę</a>
+    <a class="tel" href="tel:+48692105447">692 105 447</a>
+   </div>
+  </div>
+  <div class="art float" aria-hidden="true">
+   <svg viewBox="0 0 400 400" fill="none">
+    <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9b7c3"/><stop offset="1" stop-color="#c9a36a"/></linearGradient></defs>
+    <g class="strands">
+     <path class="strand" d="M200 20 C90 60 60 200 130 260 C190 310 120 360 150 390"/>
+     <path class="strand" style="animation-delay:.15s" d="M200 20 C110 80 100 190 160 250 C215 300 170 350 190 392"/>
+     <path class="strand" style="animation-delay:.3s" d="M200 20 C150 100 150 180 200 240 C245 290 220 340 230 394"/>
+     <path class="strand" style="animation-delay:.45s" d="M200 20 C250 90 250 180 215 235 C180 290 270 330 270 392"/>
+     <path class="strand" style="animation-delay:.6s" d="M200 20 C290 70 330 190 270 255 C225 305 310 350 310 388"/>
+    </g>
+    <g stroke="#c9a36a" stroke-width="2.2" stroke-linecap="round" transform="translate(268 40) rotate(28) scale(.55)">
+     <g><path d="M50 50 L78 14"/><circle cx="30" cy="80" r="9"/><path d="M50 50 L34 72"/></g>
+     <g><path d="M50 50 L22 14"/><circle cx="70" cy="80" r="9"/><path d="M50 50 L66 72"/></g>
+    </g>
+   </svg>
+  </div>
+ </div>
+ <div class="scroll"></div>
+</header>
+
+<section id="uslugi">
+ <div class="wrap">
+  <h2 class="h2 rv">Usługi</h2>
+  <p class="sub rv">Dobieramy fryzurę do Twojej twarzy, włosów i stylu życia.</p>
+  <div class="services">
+   <div class="svc rv"><svg viewBox="0 0 48 48"><path d="M24 5 C14 18 10 24 10 31 a14 14 0 0 0 28 0 C38 24 34 18 24 5Z"/><path d="M18 32 a6 6 0 0 0 6 6"/></svg><h3>Koloryzacja włosów</h3><p>Balayage, ombre, odświeżenie koloru i troskliwe rozjaśnianie.</p></div>
+   <div class="svc rv"><svg viewBox="0 0 48 48"><circle cx="14" cy="36" r="6"/><circle cx="34" cy="36" r="6"/><path d="M18 31 L38 6M30 31 L10 6"/></svg><h3>Strzyżenie damskie</h3><p>Precyzyjne cięcia dopasowane do kształtu twarzy i rodzaju włosów.</p></div>
+   <div class="svc rv"><svg viewBox="0 0 48 48"><path d="M6 14h22a8 8 0 0 1 0 16H6z"/><path d="M14 30l-2 12h8l-1-12"/><path d="M34 16l8-3M34 22h8M34 28l8 3"/></svg><h3>Suszarka do włosów</h3><p>Suszenie i modelowanie – gładkie pasma, fale i naturalna objętość.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="portfolio">
+ <div class="wrap">
+  <h2 class="h2 rv">Portfolio</h2>
+  <p class="sub rv">Przykładowe realizacje z salonu. Przesuń lub użyj strzałek.</p>
+  <div class="slider rv">
+   <div class="vp" id="vp"><div class="track" id="track"></div></div>
+   <div class="ctrl">
+    <div class="dots" id="dots"></div>
+    <div class="arrows"><button id="prev" aria-label="Poprzednie">←</button><button id="next" aria-label="Następne">→</button></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="o-nas">
+ <div class="wrap about">
+  <div class="rv">
+   <h2 class="h2">Spokojna atmosfera, dopracowany efekt</h2>
+   <p>W salonie u Eweliny liczy się rozmowa i detal. Najpierw słuchamy, czego oczekujesz, potem dobieramy cięcie i kolor, które pasują do Ciebie na co dzień.</p>
+   <p>Pracujemy w sercu Świebodzic, przy ulicy Mieszka Starego – łatwo do nas trafić i zaparkować.</p>
+  </div>
+  <div class="sl rv">
+   <svg viewBox="0 0 34 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" vector-effect="non-scaling-stroke" d="M17 0C3 12 31 25 17 37S3 62 17 75S31 92 17 100"/></svg>
+   <div class="row"><b>1:1</b><span>Indywidualna konsultacja przed każdą wizytą</span></div>
+   <div class="row"><b>100%</b><span>Uwagi poświęcone Twojej fryzurze</span></div>
+   <div class="row"><b class="gr">Kolor</b><span>Od naturalnych refleksów po odważne zmiany</span></div>
+   <div class="row"><b>Styl</b><span>Fryzury na co dzień i na wielkie okazje</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="kontakt">
+ <div class="wrap">
+  <h2 class="h2 rv">Umów wizytę</h2>
+  <p class="sub rv">Zapisz się online lub zadzwoń – znajdziemy termin, który Ci odpowiada.</p>
+  <div class="info rv">
+   <a href="tel:+48692105447"><small>Telefon</small><strong>692 105 447</strong></a>
+   <a href="https://www.google.com/maps/search/?api=1&query=Mieszka+Starego+29%2C+58-160+%C5%9Awiebodzice" target="_blank" rel="noopener"><small>Adres – otwórz w Mapach Google</small><strong>Mieszka Starego 29<br>58-160 Świebodzice</strong></a>
+   <div><small>Rezerwacja</small><strong>Online przez Booksy</strong></div>
+  </div>
+  <div class="hours rv">
+   <h3>Godziny otwarcia <span class="badge" id="badge"></span></h3>
+   <div id="hrs"></div>
+  </div>
+  <a class="btn book rv" href="#" data-booksy>Zapisz się</a>
+ </div>
+</section>
+
+<footer>© <span id="yr"></span> Salon fryzjerski u Eweliny · Mieszka Starego 29, 58-160 Świebodzice</footer>
+
+<script>
+// Wklej tutaj link do profilu w Booksy, gdy będzie gotowy:
+const BOOKSY_URL = "";
+document.querySelectorAll('[data-booksy]').forEach(a=>{
+  if(BOOKSY_URL){a.href=BOOKSY_URL;a.target="_blank";a.rel="noopener"}
+  else a.addEventListener('click',e=>{e.preventDefault();document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})});
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// intro
+const intro=document.getElementById('intro');
+requestAnimationFrame(()=>intro.classList.add('go'));
+setTimeout(()=>{document.body.classList.add('ready')},2500);
+setTimeout(()=>intro.remove(),4200);
+
+// nav
+const nav=document.getElementById('nav'),links=document.getElementById('links');
+addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>40),{passive:true});
+document.getElementById('burger').onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+// hero glow follows pointer
+const hero=document.querySelector('.hero');
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%');hero.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%')});
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
+
+// portfolio: original SVG illustrations
+const hairs={
+ bob:'M52 120C44 50 80 30 100 30C120 30 156 50 148 120L146 165C130 152 130 100 128 90C110 86 90 70 84 62C76 90 76 140 54 165Z',
+ long:'M56 110C50 40 85 28 100 28C118 28 152 42 144 110C148 160 158 195 142 232C128 204 138 172 128 140L128 90C108 88 92 72 86 62C76 90 76 140 72 140C62 172 72 204 58 232C42 195 52 160 56 110Z',
+ pixie:'M58 104C52 52 84 32 104 32C134 32 150 60 142 100C134 80 124 70 108 70C96 70 80 74 74 96Z',
+ updo:'M58 104C52 50 84 38 100 38C118 38 150 50 142 104C136 78 120 66 100 66C80 66 64 78 58 104Z',
+ waves:'M54 110C46 40 84 26 100 26C120 26 156 40 146 110C156 150 150 200 160 226C136 214 130 170 128 140L128 90C108 88 92 72 86 62C76 90 76 140 72 140C70 170 64 214 40 226C50 200 44 150 54 110Z'
+};
+const items=[
+ {t:'Balayage',d:'Miękkie przejście koloru',h:'long',c:['#4a2a22','#e3b877'],b:['#f3d3da','#c98aa2']},
+ {t:'Bob',d:'Klasyczne cięcie z charakterem',h:'bob',c:['#2a1420','#6d2f4a'],b:['#e9d3c0','#c9a36a']},
+ {t:'Fale',d:'Stylizacja na wieczór',h:'waves',c:['#8a4b2c','#d99a5b'],b:['#d9c4e6','#8d6aa8']},
+ {t:'Pixie',d:'Krótko i z odwagą',h:'pixie',c:['#e8d6b0','#b9925c'],b:['#b9d6d0','#5f9a94']},
+ {t:'Upięcie',d:'Fryzura okolicznościowa',h:'updo',c:['#3a1f1a','#7a4630'],b:['#f1c9c0','#d98a83']}
+];
+const track=document.getElementById('track');
+track.innerHTML=items.map((s,i)=>`<div class="slide"><div class="card"><svg class="bg" viewBox="0 0 200 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${s.t}">
+<defs><linearGradient id="b${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${s.b[0]}"/><stop offset="1" stop-color="${s.b[1]}"/></linearGradient>
+<linearGradient id="h${i}" x1="0" y1="0" x2="0" y2="1"><stop offset=".3" stop-color="${s.c[0]}"/><stop offset="1" stop-color="${s.c[1]}"/></linearGradient></defs>
+<rect width="200" height="260" fill="url(#b${i})"/><circle cx="100" cy="120" r="88" fill="rgba(255,255,255,.22)"/>
+<path d="M60 260C60 210 82 184 100 184C118 184 140 210 140 260Z" fill="#2b1322"/>
+<rect x="88" y="150" width="24" height="40" rx="8" fill="#e8c4ad"/>
+${s.h==='updo'?`<circle cx="100" cy="26" r="22" fill="url(#h${i})"/>`:''}
+<path d="${hairs[s.h]}" fill="url(#h${i})"/>
+<ellipse cx="100" cy="110" rx="39" ry="50" fill="#f1d3bf"/>
+<path d="M58 100C64 66 90 58 100 58C112 58 138 68 142 100C124 82 110 74 100 74C86 74 70 84 58 100Z" fill="url(#h${i})"/>
+<path d="M86 122q5 4 10 0M104 122q5 4 10 0M92 140q8 6 16 0" stroke="#7a4a4a" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+<div class="cap"><h3>${s.t}</h3><span>${s.d}</span></div></div></div>`).join('');
+const vp=document.getElementById('vp'),dots=document.getElementById('dots');
+let idx=0,timer;
+const per=()=>innerWidth<=860?1:(innerWidth<=1000?2:3);
+const max=()=>items.length-per();
+function build(){dots.innerHTML='';for(let i=0;i<=max();i++){const b=document.createElement('button');b.setAttribute('aria-label','Slajd '+(i+1));b.onclick=()=>{go(i);auto()};dots.appendChild(b)}}
+function go(i){const m=max();idx=i>m?0:(i<0?m:i);track.style.transform=`translateX(-${idx*100/per()}%)`;[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===idx))}
+function auto(){clearInterval(timer);timer=setInterval(()=>go(idx+1),4500)}
+document.getElementById('next').onclick=()=>{go(idx+1);auto()};
+document.getElementById('prev').onclick=()=>{go(idx-1);auto()};
+let sx=null;
+vp.addEventListener('pointerdown',e=>{sx=e.clientX});
+vp.addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx;if(Math.abs(dx)>40){go(idx+(dx<0?1:-1));auto()}sx=null});
+vp.addEventListener('pointerleave',()=>{sx=null});
+addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(idx+1);if(e.key==='ArrowLeft')go(idx-1)});
+addEventListener('resize',()=>{build();go(Math.min(idx,max()))});
+build();go(0);auto();
+// godziny otwarcia
+const days=['niedziela','poniedziałek','wtorek','środa','czwartek','piątek','sobota'];
+const H={1:[8,16],2:[8,16],3:[8,16],4:[8,16],5:[8,16],6:[8,13],0:null};
+const z=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Warsaw'}));
+const nowH=z.getHours()+z.getMinutes()/60,td=z.getDay();
+const f=n=>String(n).padStart(2,'0')+':00';
+document.getElementById('hrs').innerHTML=[1,2,3,4,5,6,0].map(d=>{const h=H[d];return `<div class="hr${d===td?' today':''}${h?'':' cl'}"><span>${days[d][0].toUpperCase()+days[d].slice(1)}</span><span>${h?f(h[0])+' - '+f(h[1]):'Zamknięte'}</span></div>`}).join('');
+const open=H[td]&&nowH>=H[td][0]&&nowH<H[td][1],bd=document.getElementById('badge');
+bd.textContent=open?'Teraz otwarte':'Teraz zamknięte';bd.className='badge '+(open?'on':'off');
+</script>
+</body>
+</html>
